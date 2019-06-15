@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package Test;
+
+message Request {
+  bytes chunk = 1;
+  string msg = 2;
+}
+
+message Response {
+  bytes chunk = 1;
+  string msg = 2;
+}
+
+service TestService {
+  rpc BidiStream (stream Request) returns (stream Response) {}
+}
